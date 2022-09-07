@@ -10,7 +10,11 @@ using StudentsContextDB context = new StudentsContextDB();
 context.Students.OrderBy(s => s.LastName + s.FirstName).ToList().ForEach(s => Console.WriteLine(s));
 
 var stud1 = context.Students.Where(s => s.Specialization == Specialization.CivilEngineering && s.Age > 20).OrderBy(s => s.Age).FirstOrDefault();
-Console.WriteLine($"\nCel mai tanar de la constructii de peste 20 de ani este {stud1}");
+
+if (stud1 != null)
+{
+    Console.WriteLine($"\nCel mai tanar de la constructii de peste 20 de ani este {stud1}");
+}
 
 static void SeedTable()
 {
